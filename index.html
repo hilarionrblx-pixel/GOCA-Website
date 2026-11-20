@@ -434,7 +434,7 @@ var d=new Date();function g(i){return document.getElementById(i)}
 g("cdate").textContent=d.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"});
 if(!window.fetch||!window.AbortController)return;
 var ctl=new AbortController(),t=setTimeout(function(){ctl.abort()},8000);
-fetch("https://orthocal.info/api/gregorian/"+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()+"/",{signal:ctl.signal})
+fetch("https://orthocal.info/api/gregorian/"+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()+"/?tradition=greek",{signal:ctl.signal})
 .then(function(r){if(!r.ok)throw new Error("bad");return r.json()})
 .then(function(day){
 clearTimeout(t);
